@@ -1,0 +1,59 @@
+<head>
+    <title>Existence is pain</title>
+    <style>
+        #mutti {
+            background: url('img/mutti.jpg');
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+
+        .saturate {
+            -webkit-filter: hue-rotate(90deg);
+            filter: hue-rotate(90deg);
+        }
+    </style>
+
+</head>
+<body>
+    <audio controls autoplay>
+        <source src="meme.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+        </audio>
+    <div id="mutti" ></div>
+</body>
+<script>
+    var img = document.getElementById('mutti');
+    var x = 0;
+    var y = 0;
+    var frame = 0;
+
+    setInterval(function () {
+        switch(frame) {
+            case 1: 
+                x = - 200;
+                y = -200;
+                img.classList.remove('saturate');
+                break;
+
+            case 3: 
+                x = 200;
+                y = 200;
+                img.classList.remove('saturate');
+                break;
+
+            default: 
+                x = 0; 
+                y = 0;
+                img.classList.add('saturate');
+                break;
+        }
+        frame ++;
+
+        frame = frame % 4;
+        console.log(frame);
+        img.style.backgroundPositionX =  `${x}px`;
+        img.style.backgroundPositionX =  `${y}px`;
+    }, 250);
+</script>
